@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="index02.css" rel="stylesheet">
+</head>
+<body>
+<div id="banner">
+    <input type="button" id="pre" class="btn" @click="pre" v-show="index!=0">
+    <img :src="imgs[index]">
+    <input type="button" id="next" class="btn" @click="next" v-show="index!=imgs.length-1">
+</div>
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var banner=new Vue({
+        el:"#banner",
+        data:{
+            imgs:["./bg3.png","./bg4.jpg","./bg6.jpg"],
+            index:1,
+            preflag:true,
+            prenext:true,
+        },
+        methods: {
+            pre:function () {
+                if(this.index>=1){
+                    this.index--;
+                }
+
+            },
+            next:function () {
+                if(this.index<=this.imgs.length-2){
+                    this.index++;
+                }
+            }
+        },
+    })
+</script>
+</body>
+
+</html>

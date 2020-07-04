@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="banner">
+    <input  type="text" @keyup.enter="add" v-model="newArg">
+    <div v-show="list.length">
+    <ul v-for="(item,index) in list" >
+        <li><span>{{index+1}}</span>{{item}}<input type="button" value="删除" @click="destroy(index)"></li>
+    </ul>
+    {{list.length}}
+    <input type="button" value="清空" @click="clear">
+    </div>
+
+</div>
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var banner=new Vue({
+        el:"#banner",
+        data:{
+            list:["第一条","第二条","第三条"],
+            newArg:"",
+        },
+        methods:{
+            add:function () {
+                this.list.push(this.newArg);
+                this.newArg="";
+            },
+            destroy:function (index) {
+                this.list.splice(index,1);
+            },
+            clear:function () {
+                this.list=[];
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue基础</title>
+</head>
+<body>
+<!--<div id="app">-->
+<!--    <p v-html="content"></p>-->
+<!--    <input type="button" value="单击事件绑定" @click="doit">-->
+<!--    <input type="button" value="双击事件绑定" @dblclick="doit">-->
+<!--<h2 @click="changeFood">{{food}}</h2>-->
+<!--</div>-->
+
+<!--计数器-->
+<!--<div id="apps">-->
+<!--    <button @click="sub">-</button>-->
+<!--    <span style="height: 100px;width: 100px">{{num}}</span>-->
+<!--    <button @click="add">+</button>-->
+<!--</div>-->
+
+<div id="a">
+    <INPUT type="button" value="切换状态" @click="change">
+    <img src="bg6.jpg" v-if="isShow">
+
+
+</div>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    // var app=new Vue({
+    //     el:"#app",
+    //     data:{
+    //         message:"冲啊!",
+    //         food:" 西兰花炒蛋",
+    //         content:"<a href='httpfr://www.baidu.com'>百度</a>",
+    //     },
+    //     methods:{
+    //         doit:function () {
+    //             alert("aaa");
+    //         },
+    //         changeFood:function () {
+    //             this.food="牛肉饭"
+    //         }
+    //     }
+    // })
+
+    // var app=new Vue({
+    //     el:"#apps",
+    //     data: {
+    //        num:1,
+    //     },
+    //     methods: {
+    //         sub:function () {
+    //             if(this.num>0&&this.num<=9){
+    //                 this.num--;
+    //             }else {
+    //                 alert("到底了")
+    //             }
+    //
+    //         },
+    //         add:function () {
+    //             if(this.num>=0&&this.num<9){
+    //                 this.num++;
+    //             }else {
+    //                 alert("不能再加咯")
+    //             }
+    //         }
+    //     },
+    // })
+    var a=new Vue({
+        el:"#a",
+        data:{
+            isShow:true,
+            age:16,
+        },
+        methods:{
+            change:function () {
+                this.isShow=!this.isShow;
+            }
+        }
+
+    })
+
+
+</script>
+</body>
+</html>
